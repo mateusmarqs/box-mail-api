@@ -1,8 +1,16 @@
 <%- include('template/head.ejs') %>
 <body>
-    <div>
-        </h1>Hello World!</h1>
-        <a class="btn btn-success"> Botão do Bootstrap </a>
+    <div style="width: 550px;">
+        <h1>Chat Email</h1>
+        <div style='height: 400px; overflow-y: scroll; background-color: rgb(240, 240, 240);' id="chat">
+
+        </div>
+        <br>
+        <input class="form-control" type="text" name="" id="msg">
+        <input class="form-control" type="text" name="" id="username" placeholder="Seu usuário">
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary btn-lg" onclick="enviar()">Enviar</button>
+        </div>
     </div>
 </body>
 <%- include('template/footer.ejs') %>
