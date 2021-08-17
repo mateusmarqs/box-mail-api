@@ -1,0 +1,28 @@
+{
+  "name": "box-mail-api",
+  "version": "1.0.0",
+  "description": "API desenvolvida para simular uma plataforma de e-mail. Com o intuito principal de trabalhar com WebSockets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateusmarqs/Box-Mail-API.git"
+  },
+  "author": "Andrews Dutra, Mateus Marques, Guilherme Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateusmarqs/Box-Mail-API/issues"
+  },
+  "homepage": "https://github.com/mateusmarqs/Box-Mail-API#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5",
+    "socket.io": "^4.1.3"
+  }
+}
