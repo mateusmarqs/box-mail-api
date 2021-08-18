@@ -1,0 +1,35 @@
+.login{
+    height: 100vh;
+    background-color: #ededee;
+    display: flex;
+    align-items: center;
+}
+
+.form-block{
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.form-register-link{
+    color: #000;
+    text-decoration: none;
+}
+
+.form-register-link:hover{
+    color: #FF5000;
+    text-decoration: none;
+}
+
+.form-login-submit{
+    border-radius: 5px;
+    border: 1px solid #f6f6f6;
+    background-color: #FF5000;
+    color: #ffffff;
+    padding: 5px 50px;
+}
+
+.form-login-submit:hover{
+    color: #FF5000;
+    background-color: #ffffff;
+    border: 1px solid #FF5000;
+}

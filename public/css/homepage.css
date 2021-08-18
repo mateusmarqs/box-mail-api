@@ -1,0 +1,114 @@
+.side-navbar {
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #100901;
+    transition: 0.5s;
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+    background-color: #ffffff26;
+}
+
+.my-container {
+    transition: 0.4s;
+}
+
+.active-nav {
+    margin-left: 0;
+}
+
+/* for main section */
+.active-cont {
+    margin-left: 255px;
+}
+
+#menu-btn {
+    background-color: #100901;
+    color: #fff;
+    margin-left: -62px;
+}
+
+.my-container input {
+    border-radius: 2rem;
+    padding: 2px 20px;
+}
+
+.sidebar-link a{
+  	color: #ffffff;
+	  text-decoration: none;
+}
+
+.sidebar-link a:hover{
+	color: #FF5000;
+}
+
+.sidebar-link a:hover i{
+	color: #FF5000;
+}
+
+.sidebar-link a span{
+	padding-left: 10px;
+}
+
+.sidebar-link-person{
+	margin-top: 70px;
+}
+
+.sidebar-link-person span{
+	margin-top: 70px;
+	font-size: 18px;
+	color: #ffffff;
+}
+
+.sidebar-link-logout a{
+	margin-top: 70px;
+	font-size: 18px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.sidebar-link-logout a:hover{
+	color: #FF5000;
+	text-decoration: none;
+}
+
+.icon-mail-nav{
+	color: #ffffff;
+}
+
+.btn-send-email{
+    border-radius: 5px;
+    border: 1px solid #f6f6f6;
+    background-color: #FF5000;
+    color: #ffffff;
+    padding: 5px 40px;
+}
+
+.btn-send-email:hover{
+    color: #FF5000;
+    background-color: #ffffff;
+    border: 1px solid #FF5000;
+}
+
+.btn-delete-email{
+    border-radius: 5px;
+    border: 1px solid #f6f6f6;
+    background-color: #dedede;
+    color: #000000;
+    padding: 5px 40px;
+}
+
+.btn-delete-email:hover{
+    color: #ff0000;
+    background-color: #ffffff;
+    border: 1px solid #b3000075;
+}
+
+.emails-block{
+	border: 1px solid #C8C9CA;
+	border-radius: 5px;
+}
