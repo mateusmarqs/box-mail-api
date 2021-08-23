@@ -3,6 +3,7 @@ const router = express.Router()
 const bcrypt = require('bcryptjs')
 
 const Users = require('../models/User')
+const Email = require('../models//Email')
 const userAuth = require('../middlewares/userAuth')
 
 router.post('/register', (req, res) => {
@@ -31,6 +32,7 @@ router.post('/authenticate', (req, res) => {
             if (comparation) {
                 req.session.user = {
                     id: user._id,
+                    email: user.email,
                     name: user.name
                 }
                 res.redirect('/')
@@ -38,18 +40,26 @@ router.post('/authenticate', (req, res) => {
                 res.redirect('/login')
             }
         })
-        .catch(() => {
-            res.send('Não autenticado')
+        .catch((err) => {
+            res.send(err)
         })
 })
 
-router.get('/logout', (req, res) => {
+router.get('/logout', userAuth, (req, res) => {
     req.session.user = undefined
     res.redirect('/login')
 })
 
 router.get('/', userAuth, (req, res) => {
-    res.render('index')    
+
+    user = req.session.user
+    
+    Email.find({recipient: user.email})
+        .then(() => {
+            console.log('to')
+            res.render('./index')
+        })
+        .catch(() => res.send('Erro oa buscar emails'))
 })
 
 module.exports = router

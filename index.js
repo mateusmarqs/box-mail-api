@@ -8,6 +8,7 @@ const http = require('http').createServer(app) // Express vai estar rodando no s
 const port = 3000
 
 const UserController = require('./server/controllers/UserController')
+const EmailController = require('./server/controllers/EmailController')
 
 // Views
 app.use(express.static('./views'));
@@ -32,6 +33,7 @@ app.use(session({
 }))
 
 app.use(UserController)
+app.use(EmailController)
 
 // io.on('connection', socket => {
 //     socket.on('msg', data => {
