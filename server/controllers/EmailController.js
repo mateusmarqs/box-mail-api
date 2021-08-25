@@ -4,7 +4,7 @@ const Email = require('../models/Email')
 const User = require('../models/User')
 const userAuth = require('../middlewares/userAuth')
 
-router.post('/send', userAuth, (req, res) => {
+router.post('/send', (req, res) => {
     const {title, contents, sender, recipient} = req.body
 
     User.findOne({ email: recipient })
@@ -18,7 +18,13 @@ router.post('/send', userAuth, (req, res) => {
                 })
 
                 email.save()
-                    .then(() => res.send('Email send sucess'))
+                    .then(() => {
+                        console.log('user', user)
+                        io.sockets.in(String(user._id)).emit("newEmail", {
+                            email
+                        })
+                        res.send('Email send sucess')
+                    })
                     .catch(() => res.status(400).send({ error: 'Email send error' }))
             } else {
                 res.send('Invalid email') 

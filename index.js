@@ -1,10 +1,11 @@
 const express = require('express')
 const session = require('express-session')
-// var io = require('socket.io')(http)
+
 
 //Configurando o Express
 const app = express()
-const http = require('http').createServer(app) // Express vai estar rodando no servidor HTTP nativo do node
+const http = require('http').createServer(app) // Express vai estar rodando no servidor HTTP nativo do node.
+io = require('socket.io')(http)
 const port = 3000
 
 const UserController = require('./server/controllers/UserController')
@@ -14,6 +15,8 @@ const EmailController = require('./server/controllers/EmailController')
 app.use(express.static('./views'));
 app.use(express.static('./public'));
 app.set('view engine', 'ejs')
+
+//Body Parser
 app.use(express.urlencoded ({
     extended: false
 }))  
@@ -28,19 +31,30 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     coockie: {
-        expires: 60000
+        maxAge: 60000
     }
 }))
 
 app.use(UserController)
 app.use(EmailController)
 
-// io.on('connection', socket => {
-//     socket.on('msg', data => {
-//         console.log(data)
-//         io.emit('showMsg', data)
-//     })
-// })
+io.on('connection', socket => {
+    // console.log(socket)
+    // io.emit('showMsg', data)
+
+    // setTimeout(() => {
+    //     io.sockets.in("612308a92491c52b7cbc98f7").emit("newEmail", {
+    //         teste: true,
+    //         tentativa: 2
+    //     })
+    // }, 1000)
+
+    socket.on('subscribe', function (userRoom) {
+        console.log('chegou aqui', userRoom)
+        socket.join(userRoom)
+    })
+})
+
 
 app.get('/login', (req, res) => {
     res.render('login')    

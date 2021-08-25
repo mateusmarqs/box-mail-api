@@ -35,7 +35,7 @@ router.post('/authenticate', (req, res) => {
                     email: user.email,
                     name: user.name
                 }
-                res.redirect('/')
+                res.render('index', {userid: user._id})
             } else {
                 res.redirect('/login')
             }
@@ -56,7 +56,6 @@ router.get('/', userAuth, (req, res) => {
     
     Email.find({recipient: user.email})
         .then(() => {
-            console.log('to')
             res.render('./index')
         })
         .catch(() => res.send('Erro oa buscar emails'))
