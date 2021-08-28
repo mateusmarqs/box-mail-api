@@ -20,7 +20,7 @@ router.post('/send', (req, res) => {
                 email.save()
                     .then(() => {
                         console.log('user', user)
-                        io.sockets.in(String(user._id)).emit("newEmail", {
+                        io.in(String(user._id)).emit("newEmail", {
                             email
                         })
                         res.send('Email send sucess')

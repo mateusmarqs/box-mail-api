@@ -54,9 +54,9 @@ router.get('/', userAuth, (req, res) => {
 
     user = req.session.user
     
-    Email.find({recipient: user.email})
-        .then(() => {
-            res.render('./index')
+    Email.findAll({recipient: user.email})
+        .then(emails => {
+            res.render('./index', {emails: emails})
         })
         .catch(() => res.send('Erro oa buscar emails'))
 })

@@ -39,15 +39,6 @@ app.use(UserController)
 app.use(EmailController)
 
 io.on('connection', socket => {
-    // console.log(socket)
-    // io.emit('showMsg', data)
-
-    // setTimeout(() => {
-    //     io.sockets.in("612308a92491c52b7cbc98f7").emit("newEmail", {
-    //         teste: true,
-    //         tentativa: 2
-    //     })
-    // }, 1000)
 
     socket.on('subscribe', function (userRoom) {
         console.log('chegou aqui', userRoom)
@@ -58,6 +49,10 @@ io.on('connection', socket => {
 
 app.get('/login', (req, res) => {
     res.render('login')    
+})
+
+app.get('/cadastro', (req, res) => {
+    res.render('cadastro')
 })
 
 http.listen(port, () => {
