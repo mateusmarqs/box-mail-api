@@ -1,0 +1,15 @@
+<%- include('template/head.ejs') %>
+<body>
+    <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-header d-flex">
+                <a class="btn btn-success" href="/">Voltar</a>
+                <h2> <%= email.title %> </h2>
+            </div>
+            <div class="card-body">
+                <%= email.contents %> <!-- Exiba essa variável formatando ela como um HMTL-->
+            </div>
+        </div>
+    </div>
+</body>

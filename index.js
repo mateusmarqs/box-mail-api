@@ -38,14 +38,12 @@ app.use(session({
 app.use(UserController)
 app.use(EmailController)
 
+// Socket.IO
 io.on('connection', socket => {
-
     socket.on('subscribe', function (userRoom) {
-        console.log('chegou aqui', userRoom)
         socket.join(userRoom)
     })
 })
-
 
 app.get('/login', (req, res) => {
     res.render('login')    

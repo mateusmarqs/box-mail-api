@@ -18,7 +18,7 @@ router.post('/register', (req, res) => {
     })
 
     newUser.save()
-        .then(newUser => res.send(newUser)) //  CONFERIR MAIS TARDE
+        .then(() => res.redirect('/login'))
         .catch(() => res.status(400).send({ error: 'Registration failed' }))
 })
 
@@ -35,14 +35,12 @@ router.post('/authenticate', (req, res) => {
                     email: user.email,
                     name: user.name
                 }
-                res.render('index', {userid: user._id})
+                res.redirect('/')
             } else {
                 res.redirect('/login')
             }
         })
-        .catch((err) => {
-            res.send(err)
-        })
+        .catch((error) => console.log(error))
 })
 
 router.get('/logout', userAuth, (req, res) => {
@@ -54,11 +52,11 @@ router.get('/', userAuth, (req, res) => {
 
     user = req.session.user
     
-    Email.findAll({recipient: user.email})
+    Email.find({recipient: user.email})
         .then(emails => {
-            res.render('./index', {emails: emails})
+            res.render('./index', {emails: emails, userId: user.id, userName: user.name})
         })
-        .catch(() => res.send('Erro oa buscar emails'))
+        .catch(() => res.send('Erro ao buscar emails'))
 })
 
 module.exports = router

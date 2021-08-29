@@ -1,11 +1,12 @@
 const express = require('express')
 const router = express.Router()
+
 const Email = require('../models/Email')
 const User = require('../models/User')
 const userAuth = require('../middlewares/userAuth')
 
-router.post('/send', (req, res) => {
-    const {title, contents, sender, recipient} = req.body
+router.post('/send', userAuth, (req, res) => {
+    const {title, contents, sender = req.session.user.email, recipient} = req.body
 
     User.findOne({ email: recipient })
         .then(user => {
@@ -19,20 +20,38 @@ router.post('/send', (req, res) => {
 
                 email.save()
                     .then(() => {
-                        console.log('user', user)
+                        console.log(user._id)
                         io.in(String(user._id)).emit("newEmail", {
                             email
                         })
-                        res.send('Email send sucess')
+                        res.redirect('/')
                     })
                     .catch(() => res.status(400).send({ error: 'Email send error' }))
             } else {
-                res.send('Invalid email') 
+                
+                res.render('./email-invalido') 
             }
         })
-        .catch(() => {
+        .catch((error) => console.log(error))
+})
 
+router.post('/view', userAuth, (req, res) => {
+    const {emailId} = req.body
+
+    Email.findOne({_id: emailId})
+        .then(email => {
+            console.log(email)
+            res.render('./email', {email: email})
         })
+        .catch(error => console.log(error))
+})
+
+router.post('/delete', userAuth, (req, res) => {
+    const {emailId} = req.body
+
+    Email.findByIdAndDelete(emailId)
+        .then(() => res.redirect('/'))
+        .catch((error) => console.log(error))
 })
 
 module.exports = router
