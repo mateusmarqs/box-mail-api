@@ -2,7 +2,7 @@
 
 API desenvolvida para simular uma plataforma de e-mail. Com o intuito principal de trabalhar com WebSockets.
 
-##Download do serviço BoxMail
+## Download do serviço BoxMail
 
 Para baixar e utilizar essa aplicação, você deverá fazer o clone desse repositório, direto em seu computador. Para isso, no repositório do GitHub você deve ir em "code", selecionar qual url remota você vai utilizar, e em seguida copiar e colar a url no terminal do seu computador, com o seguinte comando antes de colar a url:
  
