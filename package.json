@@ -4,7 +4,8 @@
   "description": "API desenvolvida para simular uma plataforma de e-mail. Com o intuito principal de trabalhar com WebSockets.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
