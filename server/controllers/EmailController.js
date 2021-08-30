@@ -20,15 +20,11 @@ router.post('/send', userAuth, (req, res) => {
 
                 email.save()
                     .then(() => {
-                        console.log(user._id)
-                        io.in(String(user._id)).emit("newEmail", {
-                            email
-                        })
+                        io.in(String(user._id)).emit("newEmail",email)
                         res.redirect('/')
                     })
                     .catch(() => res.status(400).send({ error: 'Email send error' }))
             } else {
-                
                 res.render('./email-invalido') 
             }
         })

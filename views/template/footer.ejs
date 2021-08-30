@@ -40,43 +40,43 @@ const socket = io('http://localhost:3000', {
     transports: ['websocket']
 })
 
-    socket.on('connect', () => {
-        socket.emit('subscribe', userId)
-    })
+socket.on('connect', () => {
+    socket.emit('subscribe', userId)
+})
 
-    socket.on('newEmail', email => {
-        const emailInfo = document.getElementById('newEmail')
-        const newEmail = document.createElement('div')
-        newEmail.innerHTML = `<div class="email-info" id='emailInfo'>
-                        <div class="row">
-                            <div class="col-7">
-                                <div class="d-flex">
-                                    <b> Novo! </b>
-                                    <div class="" id='emailTitle'> ${email.email.title} </div>
-                                </div>
+socket.on('newEmail', email => {
+    const emailInfo = document.getElementById('newEmail')
+    const newEmail = document.createElement('div')
+    newEmail.innerHTML = `<div class="email-info" id='emailInfo'>
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="d-flex">
+                                <b> Novo! </b>
+                                <div class="" id='emailTitle'> ${email.title} </div>
                             </div>
-                            <!-- Botões "View Mensage" e "Deletar" -->
-                            <div class="col-5 text-end">
-                                <div style="display: flex; flex-wrap: wrap">
-                                    <form style="margin-right: 10px" action="/view" method="post">
-                                        <input type="hidden" name="emailId" value="${email.email.id}">
-                                        <button class="btn btn-success">Visualizar mensagem</button>
-                                    </form>
-                                    <form style="margin-right: 10px" action="/delete" method="post" onsubmit="confirmarDelecao(event, this)">
-                                        <input type="hidden" name="emailId" value="${email.email.id}">
-                                        <button class="btn btn-danger">Deletar</button>
-                                    </form>
-                                    ${email.email.sender}
-                                </div>
-                               
+                        </div>
+                        <!-- Botões "View Mensage" e "Deletar" -->
+                        <div class="col-5 text-end">
+                            <div style="display: flex; flex-wrap: wrap">
+                                <form style="margin-right: 10px" action="/view" method="post">
+                                    <input type="hidden" name="emailId" value="${email._id}">
+                                    <button class="btn btn-success">Visualizar mensagem</button>
+                                </form>
+                                <form style="margin-right: 10px" action="/delete" method="post" onsubmit="confirmarDelecao(event, this)">
+                                    <input type="hidden" name="emailId" value="${email._id}">
+                                    <button class="btn btn-danger">Deletar</button>
+                                </form>
+                                ${email.sender}
                             </div>
                             
-                            <hr class="mt-3">
                         </div>
-                    </div>`
+                        
+                        <hr class="mt-3">
+                    </div>
+                </div>`
 
-        emailInfo.append(newEmail)
-    })
+    emailInfo.append(newEmail)
+})
 
 </script>
 </body>
