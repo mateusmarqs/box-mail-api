@@ -2,23 +2,27 @@
 
 API desenvolvida para simular uma plataforma de e-mail. Com o intuito principal de trabalhar com WebSockets.
 
+##Download do serviço BoxMail
+
+Para baixar e utilizar essa aplicação, você deverá fazer o clone desse repositório, direto em seu computador. Para isso, no repositório do GitHub você deve ir em "code", selecionar qual url remota você vai utilizar, e em seguida copiar e colar a url no terminal do seu computador, com o seguinte comando antes de colar a url:
+ 
+~~~javascript
+git clone {url_do_repo}
+~~~ 
+ou baixar o repositório via download ZIP. 
 ## Instalação
 
-Para rodar o projeto, será necessário ter o Node.js instalado no computador.
+Para iniciar o projeto, será necessário ter o docker e o docker-compose instalado no computador. A instalação desses serviços podem ser encontrada em: 
+> https://docs.docker.com/engine/install/
+> https://docs.docker.com/compose/install/
 
-> Link para donwload: https://nodejs.org/en/
+Após feita a instalação, você irá abrir o terminal na pasta raíz do projeto e digitar:
 
-Após o Node.js estar devidamente instalado, execute os seguintes comandos dentro da pasta raiz do projeto.
-
-Intalando dependências:
 ~~~javascript
-npm install
+docker-compose up -d
 ~~~
+Esse comando fará com que o docker-compose baixe e instale as dependências e pacotes necessários para rodar a aplicação. Obs: Isso pode demorar um pouco na primeira vez.
 
-Para rodar o projeto:
-~~~javascript
-node .\index.js
-~~~
 
 Após esse comando, você pode verificar se está tudo rodando corretamente, através da seguinte mensagem no terminal:
 
