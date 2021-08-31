@@ -20,7 +20,8 @@ router.post('/send', userAuth, (req, res) => {
 
                 email.save()
                     .then(() => {
-                        io.in(String(user._id)).emit("newEmail",email)
+                        io.in(String(user._id)).emit("newEmail", email)
+                        console.log(`O usuário ${req.session.user.name} acabou de enviar um e-mail para ${user.name}.`)
                         res.redirect('/')
                     })
                     .catch(() => res.status(400).send({ error: 'Email send error' }))
