@@ -41,7 +41,7 @@ Em seguida, após a utilização do serviço BoxMail, você pode digitar o coman
 docker-compose down
 ~~~
 
-###Logs
+### Logs
 **Obs:** Se desejar ver os logs de envio de e-mails e conexão dos usuários. É necessário digitar o mesmo comando, porém sem a tag -d. Ficando assim:
 
 ~~~javascript
