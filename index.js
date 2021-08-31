@@ -1,7 +1,6 @@
 const express = require('express')
 const session = require('express-session')
 
-
 //Configurando o Express
 const app = express()
 const http = require('http').createServer(app) // Express vai estar rodando no servidor HTTP nativo do node.
@@ -41,6 +40,7 @@ app.use(EmailController)
 // Socket.IO
 io.on('connection', socket => {
     socket.on('subscribe', function (userRoom) {
+        console.log(`O usuário de ID = ${userRoom} se conectou.`)
         socket.join(userRoom)
     })
 })
