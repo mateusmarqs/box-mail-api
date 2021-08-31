@@ -13,8 +13,9 @@ ou baixar o repositório via download ZIP.
 ## Instalação
 
 Para iniciar o projeto, será necessário ter o docker e o docker-compose instalado no computador. A instalação desses serviços podem ser encontrada em: 
-> https://docs.docker.com/engine/install/
-> https://docs.docker.com/compose/install/
+> * https://docs.docker.com/engine/install/
+> 
+> * https://docs.docker.com/compose/install/
 
 Após feita a instalação, você irá abrir o terminal na pasta raíz do projeto e digitar:
 
