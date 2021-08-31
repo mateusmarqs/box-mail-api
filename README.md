@@ -4,7 +4,7 @@ API desenvolvida para simular uma plataforma de e-mail. Com o intuito principal 
 
 ## Download do serviço BoxMail
 
-Para baixar e utilizar essa aplicação, você deverá fazer o clone desse repositório, direto em seu computador. Para isso, no repositório do GitHub você deve ir em "code", selecionar qual url remota você vai utilizar, e em seguida copiar e colar a url no terminal do seu computador, com o seguinte comando antes de colar a url:
+Para baixar e utilizar essa aplicação, você deverá fazer o clone desse repositório, direto em seu computador. Para isso, no repositório do GitHub você deve ir em "code", selecionar qual url remota você vai utilizar, e em seguida copiar e colar a url no terminal do seu computador, com o seguinte comando:
  
 ~~~javascript
 git clone {url_do_repo}
@@ -22,7 +22,7 @@ Após feita a instalação, você irá abrir o terminal na pasta raíz do projet
 ~~~javascript
 docker-compose up -d
 ~~~
-Esse comando fará com que o docker-compose baixe e instale as dependências e pacotes necessários para rodar a aplicação. Obs: Isso pode demorar um pouco na primeira vez.
+Esse comando fará com que o docker-compose baixe e instale as dependências e pacotes necessários para rodar a aplicação. Obs: Isso pode demorar um pouco na primeira vez que executar o comando.
 
 
 Após esse comando, você pode verificar se está tudo rodando corretamente, através da seguinte mensagem no terminal:
@@ -34,3 +34,9 @@ Sevidor rodando na porta 3000
 Após a confirmação da mensagem, basta abrir o projeto na porta 3000 no seu navegador:
 
 > Link: http://localhost:3000/
+
+Em seguida, após a utilização do serviço BoxMail, você pode digitar o comando abaixo para "destruir" o container: 
+
+~~~javascript
+docker-compose down
+~~~
