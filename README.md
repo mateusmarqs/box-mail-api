@@ -35,7 +35,7 @@ Após a confirmação da mensagem, basta abrir o projeto na porta 3000 no seu na
 
 > Link: http://localhost:3000/
 
-Em seguida, após a utilização do serviço BoxMail, você pode digitar o comando abaixo para "destruir" o container: 
+Em seguida, após a utilização do serviço BoxMail, você pode digitar o comando abaixo para "destruir" o container:
 
 ~~~javascript
 docker-compose down
