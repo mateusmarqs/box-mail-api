@@ -17,7 +17,7 @@ Para iniciar o projeto, será necessário ter o docker e o docker-compose instal
 > 
 > * https://docs.docker.com/compose/install/
 
-Após feita a instalação, você irá abrir o terminal na pasta raíz do projeto e digitar o seguinte comando caso não queira acompanhar os logs. Porém se for do interesse acompanhá-los [aqui](###Logs) você encontra como faz.
+Após feita a instalação, você irá abrir o terminal na pasta raíz do projeto e digitar o seguinte comando caso não queira acompanhar os logs. Porém se for do interesse acompanhá-los [aqui](#Logs) você encontra como faz.
 
 ~~~javascript
 docker-compose up -d
@@ -40,8 +40,8 @@ Em seguida, após a utilização do serviço BoxMail, você pode digitar o coman
 ~~~javascript
 docker-compose down
 ~~~
+## Logs<a name="Logs" /> 
 
-### Logs
 **Obs:** Se desejar ver os logs de envio de e-mails e conexão dos usuários. É necessário digitar o mesmo comando, porém sem a tag -d. Ficando assim:
 
 ~~~javascript
